@@ -6,6 +6,11 @@ public class Despawn : MonoBehaviour {
 
     public float despawnIn = 5f;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+
     public void Update()
     {
         if (despawnIn < 0)

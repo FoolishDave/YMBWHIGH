@@ -91,10 +91,6 @@ public class TimePower : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision with " + collision.gameObject.tag);
-        Debug.Log("Cooldown: " + onCooldown);
-        Debug.Log("Time slowed: " + timeSlowed);
-        Debug.Log("Invuln Time: " + invulnTimer);
         if (onCooldown && !timeSlowed && invulnTimer <= 0f && Time.timeScale > .99f)
         {
             DestroyPlayer();
@@ -130,7 +126,6 @@ public class TimePower : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
             {
-                Debug.Log("Starting dash");
                 foreach (GameObject after in afterImages)
                 {
                     Renderer aRenderer = after.GetComponent<Renderer>();
@@ -198,7 +193,6 @@ public class TimePower : MonoBehaviour
         bool norm = true;
         while (true)
         {
-            Debug.Log("Flashing invuln");
             if (norm) renderer.material = InvulnFlashMat;
             else renderer.material = NormalMat;
             norm = !norm;
